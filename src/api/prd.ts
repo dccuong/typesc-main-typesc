@@ -9,11 +9,15 @@ export const remove = (id: string) => {
     const url = `/product/${id}`;
     return instance.delete(url);
 }
-export const get = (id: string | undefined) => {
+export const getAPrd = (id: string | undefined) => {
     const url = `/product/${id}`;
     return instance.get(url);
 }
 export const add = (product: IProduct) => {
-    const url = "/products";
+    const url = "/product";
     return instance.post(url, product);
+}
+export const edit = (product: IProduct) => {
+    const url = `/product/${product._id}`;
+    return instance.put(url, product);
 }

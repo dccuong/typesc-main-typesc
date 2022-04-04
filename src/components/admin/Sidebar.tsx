@@ -1,61 +1,42 @@
 import React, { Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
+import { Layout, Menu, Breadcrumb } from 'antd';
+import {
+    DesktopOutlined,
+    PieChartOutlined,
+    FileOutlined,
+    TeamOutlined,
+    UserOutlined,
+} from '@ant-design/icons';
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 type Props = {}
 
 const Sidebar = (props: Props) => {
     return (
 
-        <nav className="">
-            <h3 className="text-2xl font-medium text-blue-500">ADMIN</h3>
-            <NavLink className="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" to="/admin">
-                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    {/* <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path> */}
-                </svg>
-
-                <span className="mx-3">Dashboard</span>
-            </NavLink>
-
-            <NavLink className="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                to="/ui-elements">
-                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    {/* <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z">
-                    </path> */}
-                </svg>
-
-                <span className="mx-3">UI Elements</span>
-            </NavLink>
-
-            <NavLink className="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                to="./products">
-                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    {/* <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                    </path> */}
-                </svg>
-
-                <span className="mx-3">Tables</span>
-            </NavLink>
-
-            <NavLink className="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                to="/forms">
-                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    {/* <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-                    </path> */}
-                </svg>
-
-                <span className="mx-3">Forms</span>
-            </NavLink>
-        </nav>
+        <Sider collapsible >
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                <Menu.Item key="1" icon={<PieChartOutlined />}>
+                    <Link to="/admin"> Dashboard </Link>
+                </Menu.Item>
+                <SubMenu key="sub4" icon={<DesktopOutlined />} title="Products">
+                    <Menu.Item key="7"> <Link to="./products"> Líst </Link></Menu.Item>
+                    <Menu.Item key="10"> <Link to="./products/add"> Add </Link></Menu.Item>
+                </SubMenu>
+                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+                    <Menu.Item key="3">List</Menu.Item>
+                    <Menu.Item key="4">Add</Menu.Item>
+                </SubMenu>
+                <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+                    <Menu.Item key="6">Team 1</Menu.Item>
+                    <Menu.Item key="8">Team 2</Menu.Item>
+                </SubMenu>
+                <Menu.Item key="9" icon={<FileOutlined />}>
+                    <Link to="/"> Go HOME </Link>
+                </Menu.Item>
+            </Menu>
+        </Sider>
 
     )
 }

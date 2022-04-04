@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IProduct } from '../../../type/product';
 import { useNavigate } from 'react-router-dom';
+import Item from 'antd/lib/list/Item';
 type ProductManagerProps = {
     products: IProduct[];
+
     onRemove: (id: string) => void
 }
 
@@ -28,16 +30,20 @@ const Products = (props: ProductManagerProps) => {
                                     <thead className="bg-gray-50 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                ID
+                                            </th>
+                                            <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                 Name
                                             </th>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Color
+                                                Price
                                             </th>
+
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                 Category
                                             </th>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Price
+                                                Img
                                             </th>
                                             <th scope="col" className="relative py-3 px-6">
                                                 <span className="sr-only">Edit</span>
@@ -57,15 +63,22 @@ const Products = (props: ProductManagerProps) => {
                                                 <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                     {item.price}
                                                 </td>
-                                                <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    $2999
+
+                                                <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400 max-w-[100px]" >
+                                                    {item.category}
+                                                </td>
+                                                <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400 max-w-[100px]" >
+                                                    <img src={item.img} alt="" />
                                                 </td>
                                                 <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                    <Link to="" >
-                                                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[3px] px-[10px]  text-[12px]" >
-                                                            Edit
-                                                        </button>
+
+                                                    <Link to={`/admin/products/${item._id}/edit`}>   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-[3px] px-[10px]  text-[12px]"
+                                                    >
+                                                        Edit
+                                                    </button>
+
                                                     </Link>
+                                                    {/* </Link> */}
                                                     <Link to="" >
                                                         <button className="bg-red-400 hover:bg-red-700 text-white font-bold py-[3px] px-[10px]  text-[12px]"
                                                             onClick={() => {

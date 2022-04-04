@@ -1,6 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { Layout, Menu, Breadcrumb } from 'antd';
+import {
+    DesktopOutlined,
+    PieChartOutlined,
+    FileOutlined,
+    TeamOutlined,
+    UserOutlined,
+} from '@ant-design/icons';
 
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 import Header_A from './Header_A'
 import Sidebar from './Sidebar'
 
@@ -8,21 +18,22 @@ type Props = {}
 
 const AdminLayout = (props: Props) => {
     return (
-        <div className='grid grid-cols-6 '>
+        <Layout style={{ minHeight: '100vh' }}>
             <Sidebar />
-            <div className="container-fluid col-span-5">
-                <div className="">
-                    {/* <Header_A /> */}
-                    <main className="bg-gray-100">
-                        <div className="container mx-auto p-5">
-
-                            <Outlet />
-
-                        </div>
-                    </main>
-                </div>
-            </div>
-        </div>
+            <Layout className="site-layout">
+                <Header className="site-layout-background" style={{ padding: 0 }} />
+                <Content style={{ margin: '0 16px' }}>
+                    <Breadcrumb style={{ margin: '16px 0' }}>
+                        <Breadcrumb.Item>User</Breadcrumb.Item>
+                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                        <Outlet />
+                    </div>
+                </Content>
+                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+            </Layout>
+        </Layout>
 
     )
 }
