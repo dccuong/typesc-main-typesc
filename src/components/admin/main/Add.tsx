@@ -3,11 +3,7 @@ import axios from "axios";
 
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
-
 import { TypeCate } from "../../../type/cate";
-import Uploady from "@rpldy/uploady";
-import UploadButton from "@rpldy/upload-button";
-import UploadPreview from "@rpldy/upload-preview";
 import { useState } from "react";
 
 
@@ -61,21 +57,23 @@ const AddProduct = (props: ProductAddProps) => {
             Form ADD
             <form onSubmit={handleSubmit(onSubmit)}  >
                 <div className="">
-                    <input className="shadow-xl w-[90%] py-[7px] my-[5px]" type="text" placeholder='Ten san pham' {...register('name')} />
-
-                    <input className="shadow-xl my-[5px]  w-[90%] py-[7px]" type="number" placeholder='Gia san pham' {...register('price')} />
-
-                    <input className="shadow-xl my-[5px]   w-[90%] py-[7px] " type="text" placeholder='Tieu de san pham' {...register('desc')} />
-
+                    <input className="shadow-xl w-[90%] py-[7px] my-[5px]" type="text" placeholder='Ten san pham' {...register('name', { required: true })} />
+                    {errors.name?.type === 'required' && <span className="text-red-700">is required</span>}
+                    <input className="shadow-xl my-[5px]  w-[90%] py-[7px]" type="number" placeholder='Gia san pham' {...register('price', { required: true })} />
+                    {errors.price?.type === 'required' && <span className="text-red-700">is required</span>}
+                    <input className="shadow-xl my-[5px]   w-[90%] py-[7px] " type="text" placeholder='Tieu de san pham' {...register('desc', { required: true })} />
+                    {errors.desc?.type === 'required' && <span className="text-red-700">is required</span>}
 
                     <br />
 
 
                     <div className="register_profile_image">
-                        <input id="profilePic" {...register("img")} type="file" onChange={onChangePicture} />
+                        {console.log({ ...register("img") })}
+                        <input id="profilePic" {...register("img", { required: true })} type="file" onChange={onChangePicture} />
+                        {errors.img?.type === 'required' && <span className="text-red-700">is required</span>}
                     </div>
                     <div className="previewProfilePic" >
-                        <img className="playerProfilePic_home_tile" src={picture && picture} />
+                        <img className="playerProfilePic_home_tile mx-auto" src={picture && picture} />
                     </div>
 
 

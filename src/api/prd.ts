@@ -21,3 +21,7 @@ export const edit = (product: IProduct) => {
     const url = `/product/${product._id}`;
     return instance.put(url, product);
 }
+export const goSearch = (key: string | undefined) => {
+    const url = `/products/search?key=` + key;
+    return instance.get(url);
+}

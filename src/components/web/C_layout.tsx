@@ -14,11 +14,10 @@ type Props = {
 const C_layout = (props: Props) => {
     return (
         <Layout >
-            <Header_C listCate={props.categorys} />
-            <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+            <header className='fixed z-[10] w-[100%] ' > <Header_C /></header>
+            <Content className="site-layout  ">
 
-                <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-
+                <div className="site-layout-background  mt-[70px]" >
                     <Outlet />
                 </div>
             </Content>

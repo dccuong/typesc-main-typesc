@@ -20,12 +20,14 @@ const Signup = (props: Props) => {
 
 
     return (
-        <div>Signup
-            <div className="w-full max-w-xs mx-auto">
+        <div>
+            <div className="w-full max-w-xs mx-auto mt-4">
+
                 <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
 
                     onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-4">
+                        <p>Signup</p>
                         <label className="block text-gray-700 text-sm font-bold mb-2" >
                             Username
                         </label>

@@ -3,7 +3,6 @@ import './App.css'
 import 'antd/dist/antd.css';
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import Home from './components/web/Home'
 import C_layout from './components/web/C_layout';
@@ -23,9 +22,10 @@ import { signin, signup } from './api/user';
 import { TypeCate } from './type/cate';
 import { getCate } from './api/cate';
 import DetailPrd from './components/web/page/DetailPrd';
-import PrvRouterUser from './components/PrvRouterUsers';
+import PrvRouterUser from './components/PrvRouterUser';
 import UserA from './components/web/page/User/UserA';
 import UserC from './components/web/page/User/UserC';
+import Search from './components/web/page/Search';
 
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
   const [category, setCategory] = useState<TypeCate[]>([])
   const [data, setdata] = useState([])
   useEffect(() => {
+
     const getProducts = async () => {
       const { data } = await list();
       console.log(data)
@@ -42,6 +43,7 @@ function App() {
     };
     const getCategory = async () => {
       const { data } = await getCate();
+
       console.log(data)
       setCategory(data)
     }
@@ -77,15 +79,13 @@ function App() {
       <Routes>
         <Route path="/" element={<C_layout categorys={category} />} >
           <Route index element={<Home products={products} />} />
-          <Route path="products" element={<PrdPage />} />
+          <Route path="/search" element={<PrdPage />} />
           <Route path="product/:id" element={<DetailPrd />} />
           <Route path="AccA" element={<PrvRouterUser><UserA /></PrvRouterUser>} />
           <Route path="AccC" element={<PrvRouterUser><UserC /></PrvRouterUser>} />
-
-
           <Route path="signin" element={<Signin onSignIn={onHandleSignIn} />} />
           <Route path="signup" element={<Signup onSignUp={onHandleSignUp} />} />
-
+          <Route path="products/search" element={<Search />} />
         </Route>
         <Route path="admin" element={<PrvRouter><AdminLayout /></PrvRouter>} >
           <Route index element={<Navigate to="dashboard" />} />

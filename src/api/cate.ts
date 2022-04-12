@@ -9,3 +9,7 @@ export const getCate = () => {
     const url = "/category";
     return instance.get(url)
 }
+export const getPrdCate = (_id: Object) => {
+    const url = "/category/" + _id
+    return instance.get(url)
+}

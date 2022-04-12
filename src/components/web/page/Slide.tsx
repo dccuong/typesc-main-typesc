@@ -16,11 +16,11 @@ const Slide = (props: Props) => {
     return (
         <Carousel autoplay>
             <div>
-                <img className='h-[500px] w-[100%]' src="https://i.pinimg.com/originals/67/88/f9/6788f98de13c01facde32cad4ff6c693.jpg" alt="" />
+                <img className='h-[650px] w-[100%]' src="https://i.pinimg.com/originals/67/88/f9/6788f98de13c01facde32cad4ff6c693.jpg" alt="" />
 
             </div >
             <div>
-                <img className='h-[500px] w-[100%]' src="https://i.pinimg.com/originals/67/88/f9/6788f98de13c01facde32cad4ff6c693.jpg" alt="" />
+                <img className='h-[650px] w-[100%]' src="https://i.pinimg.com/originals/67/88/f9/6788f98de13c01facde32cad4ff6c693.jpg" alt="" />
 
             </div >
         </Carousel>

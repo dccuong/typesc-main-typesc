@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-
-type Props = {
-
-}
+type Props = {}
 
 const UserA = (props: Props) => {
-    // const [name, setName] = useState()
-    // useEffect(() => {
-    //     const getIn4 = async () => {
-
-    //         await setName(JSON.parse(localStorage.getItem("user") || "").user.name)
-    //     }
-    // }, [])
-
     return (
-        <div>Halo
-            {/* {name} */}
-
-        </div>
+        <div className='mt-[100px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, quas! Commodi accusamus, vitae facilis, quidem sed quas iusto eum dolorem possimus aut incidunt voluptatibus pariatur accusantium recusandae sequi, consectetur odio.</div>
     )
 }
 
